@@ -5,12 +5,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Larareact</title>
-
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     
 
         
     </head>
     <body>
         <h1>TEST<h1>
-    </body>
+        <button onclick="testAjax()">
+        test ajax 
+        </button>
+        </body>
+
+        <script>
+        function testAjax()
+        {
+            axios.get('/freyt')
+               .then(function (response) 
+               {
+                     console.log(response.data);
+               }).catch(function (error)
+               {
+                   alert('сломалось')
+               })
+                  
+        }
+        </script>
+   
 </html>

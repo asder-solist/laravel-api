@@ -1,5 +1,6 @@
 <?php
-
+use\App\MAnufacturer;
+use\App\Http\Resources\ManufacturerResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/manufacturers', function()
+{
+   return ManufacturerResource::collection(Manufacturer::all());
+});
+Route::get('/best_manufacturer', function()
+{
+   return new ManufacturerResource(Manufacturer::find(10));
 });

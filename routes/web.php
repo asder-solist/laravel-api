@@ -1,5 +1,6 @@
 <?php
-
+use App\Product;
+use App\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,3 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'IndexController@index');
+
+Route::get('/freyt', function()
+{
+return response()->json(Product::get());
+} );
